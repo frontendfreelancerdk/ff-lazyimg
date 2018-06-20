@@ -1,0 +1,30 @@
+{
+  "name": "ff-lazyimg",
+  "version": "0.0.1",
+  "description": "An image lazyloader for angular 2+",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ng":"ng"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontendfreelancerdk/ff-lazyimg.git"
+  },
+  "keywords": [
+    "Angular2",
+    "Angular6",
+    "Lazyload",
+    "Images",
+    "typescript"
+  ],
+  "author": "frontend-freelancer.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frontendfreelancerdk/ff-lazyimg/issues"
+  },
+  "homepage": "https://github.com/frontendfreelancerdk/ff-lazyimg#readme",
+  "dependencies": {
+    "@angular/cli": "^6.0.7"
+  }
+}
