@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {LazyimgModule} from "lazyimg";
-import { LazyimgComponent } from './lazyimg/lazyimg.component';
+import { LazyimgComponent } from '../../projects/lazyimg/src/lib/lazyimg.component';
 
 
 @NgModule({

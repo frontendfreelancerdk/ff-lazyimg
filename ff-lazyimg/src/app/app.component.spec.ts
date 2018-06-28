@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {LazyimgComponent} from "./lazyimg/lazyimg.component";
+import {LazyimgComponent} from "../../projects/lazyimg/src/lib/lazyimg.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
