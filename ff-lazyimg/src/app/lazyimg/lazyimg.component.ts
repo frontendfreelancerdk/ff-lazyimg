@@ -16,22 +16,23 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent {
   public applySources: boolean = false;
 
 
-  constructor(private service: LazyimgService) {
-    console.log("constructor", this.configuration);
+  constructor(public service: LazyimgService) {
     service.imageCounter();
-
+    console.log("constructor", this.configuration);
   }
 
   ngOnInit() {
+    console.log("OnInit", this.configuration);
     this.order = this.configuration.order;
     this.src = this.configuration.src;
     this.srcset = this.configuration.srcset;
     this.service.loader(this);
+
   }
 
 
   onLoadHandler() {
-    console.log("i get called", this.order);
+   // console.log("i get called", this.order);
     //   this.applySources = true;
   }
 

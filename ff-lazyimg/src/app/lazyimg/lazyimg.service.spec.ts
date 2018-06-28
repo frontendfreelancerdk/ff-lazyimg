@@ -1,4 +1,4 @@
-import {TestBed, inject, fakeAsync} from '@angular/core/testing';
+import {TestBed, inject, fakeAsync, tick} from '@angular/core/testing';
 
 import {LazyimgService} from './lazyimg.service';
 import {ILazyimgComponent} from "./ILazyimgComponent"
@@ -23,7 +23,7 @@ const createILazyimgComponent = (obj?: any): ILazyimgComponent => {
   }
   return lazyImgComponent;
 };
-fdescribe('LazyimgService', () => {
+describe('LazyimgService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LazyimgService]
@@ -59,12 +59,22 @@ fdescribe('LazyimgService', () => {
       let imgComponent2 = createILazyimgComponent({order: 1});
       service.loader(imgComponent1);
       service.loader(imgComponent2);
-      //expect(service["images"][0]).toBe(imgComponent2);
-
+      tick();
+      expect(service["images"][0]).toBe(imgComponent2);
 
     }))
   );
 
+
+  it("will call the onLoadHandler on object", inject([LazyimgService], fakeAsync((service: LazyimgService) => {
+    service.imageCounter();
+    let imgComponent1 = createILazyimgComponent({order: 2});
+    service.loader(imgComponent1);
+    spyOn(imgComponent1,"onLoadHandler");
+    tick();
+    expect(imgComponent1.onLoadHandler).toHaveBeenCalled();
+
+  })));
 
   it("Template", inject([LazyimgService], (service: LazyimgService) => {
 

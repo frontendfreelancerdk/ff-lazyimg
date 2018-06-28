@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "ctest": "ng test ff-lazyimg --code-coverage",
+    "ctest": "ng test ff-lazyimg --sourceMap=false --code-coverage ",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ngv": "ng -v"
