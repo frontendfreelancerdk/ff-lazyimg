@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ng":"ng"
+    "ng": "ng"
   },
   "repository": {
     "type": "git",
