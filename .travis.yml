@@ -25,7 +25,7 @@ before_script:
 - npm install -g @angular/cli
 - npm install -g karma@2.0.0
 script:
-- cd ff-lazyimg && npm run travistest
+- npm run travistest
 notifications:
   email:
     on_failure: developer@frontend-freelancer.com
