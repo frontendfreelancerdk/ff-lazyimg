@@ -4,7 +4,7 @@ import {ILazyimgComponent} from "./ILazyimgComponent";
 
 
 @Component({
-  selector: 'app-lazyimg',
+  selector: 'ff-lazyimg',
   templateUrl: './lazyimg.component.html',
   styleUrls: ['./lazyimg.component.scss']
 })
