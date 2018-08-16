@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "ctest": "ng test ff-lazyimg --sourceMap=false --code-coverage ",
-    "travistest": "ng test ff-lazyimg --watch=false --sourceMap=false --code-coverage ",
+    "travistest": "ng test lazyimg --watch=false --sourceMap=false --code-coverage ",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ngv": "ng -v"
@@ -52,7 +52,6 @@
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
-    "name": "lazyimg",
     "version": "0.0.1",
     "peerDependencies": {
       "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
