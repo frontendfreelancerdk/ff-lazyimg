@@ -1,29 +1,35 @@
 import {Injectable} from '@angular/core';
-import {ILazyimgComponent} from "./ILazyimgComponent";
-
-@Injectable({
-  providedIn: 'root'
-})
+import {ILazyimgComponent} from './interfaces/ILazyimgComponent';
+@Injectable({providedIn: 'root'})
 export class LazyimgService {
   private counter: number = 0;
   private images: ILazyimgComponent[] = [];
-
+  private imagesToLoad: ILazyimgComponent[] = [];
+  private hasLoadedAll: boolean = false;
+  /**
+   * @description calls the onloadhandler and resets the counter
+   */
   private doLoad = () => {
-    for (let i = 0; i < this.images.length; i++) {
-      const image = this.images[i];
-      image.onLoadHandler();
+    const images = this.imagesToLoad;
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i];
+      image.startLoadHandler();
     }
+    this.hasLoadedAll = true;
+
   };
-  private sortImages = () => {
-    this.images.sort((a, b) => {
+
+  public sortImages = () => {
+    this.imagesToLoad.sort((a, b) => {
         return a.order - b.order;
       }
     );
   };
 
   private setOrderIfUndefined = () => {
-    for (let i = 0; i < this.images.length; i++) {
-      const image = this.images[i];
+    const images = this.imagesToLoad;
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i];
       if (!image.order) {
         image.order = this.counter;
       }
@@ -31,16 +37,29 @@ export class LazyimgService {
   };
 
   constructor() {
+    // console.log('an lazyimg Service was constructed');
   }
 
-  imageCounter() {
+  imageCounter(): number {
     this.counter += 1;
+    return this.counter;
   }
 
   loader(obj: ILazyimgComponent) {
     this.images.push(obj);
-    //sort the images by order but only when all images is added - hence comparioson to counter!!
+
+    //if load is set to true add it to the to load array right away
+
+    if (obj.load === true) {
+      this.imagesToLoad.push(obj);
+    }
+    //if an image is added after constructing the view call the load handler if load is true. we do not need to add it to internal counting
+    if (this.hasLoadedAll && obj.load === true) {
+      obj.startLoadHandler();
+    }
+    // sort the images by order but only when all images is added - hence comparison to counter!!
     if (this.images.length === this.counter) {
+      // timeout ensures we only do this on next update cycle so all OnInit has been called
       window.setTimeout(() => {
         this.setOrderIfUndefined();
         this.sortImages();
@@ -48,7 +67,6 @@ export class LazyimgService {
       }, 0);
 
     }
-
   }
 
 }
