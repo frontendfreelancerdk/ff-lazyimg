@@ -12,16 +12,16 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/lazyimg/tsconfig.lib.json",
-            "project": "projects/lazyimg/ng-package.json"
+            "tsConfig": "./tsconfig.lib.json",
+            "project": "./ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/lazyimg/src/test.ts",
-            "tsConfig": "projects/lazyimg/tsconfig.spec.json",
-            "karmaConfig": "projects/lazyimg/karma.conf.js",
+            "tsConfig": "./tsconfig.spec.json",
+            "karmaConfig": "./karma.conf.js",
             "codeCoverage":true
           }
         },
@@ -29,8 +29,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/lazyimg/tsconfig.lib.json",
-              "projects/lazyimg/tsconfig.spec.json"
+              "./tsconfig.lib.json",
+              "./tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
