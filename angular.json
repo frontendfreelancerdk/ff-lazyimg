@@ -4,96 +4,33 @@
   "newProjectRoot": "projects",
   "projects": {
     "lazyimg": {
-      "root": "",
-      "sourceRoot": "src",
-      "projectType": "application",
+      "root": "/",
+      "sourceRoot": "./src",
+      "projectType": "library",
       "prefix": "ff",
-      "schematics": {},
       "targets": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "outputPath": "dist/ng-catalogue",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss",
-              "node_modules/prismjs/themes/prism-coy.css"
-            ],
-            "scripts": [
-              "node_modules/marked/lib/marked.js",
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/components/prism-javascript.min.js",
-              "node_modules/prismjs/components/prism-bash.min.js"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "ng-catalogue:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "ng-catalogue:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ng-catalogue:build"
+            "tsConfig": "projects/lazyimg/tsconfig.lib.json",
+            "project": "projects/lazyimg/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "main": "projects/lazyimg/src/test.ts",
+            "tsConfig": "projects/lazyimg/tsconfig.spec.json",
+            "karmaConfig": "projects/lazyimg/karma.conf.js",
+            "codeCoverage":true
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
+              "projects/lazyimg/tsconfig.lib.json",
+              "projects/lazyimg/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
