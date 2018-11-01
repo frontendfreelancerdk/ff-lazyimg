@@ -22,6 +22,7 @@
       "check-open-brace",
       "check-catch",
       "check-whitespace"
-    ]
+    ],
+    "no-bitwise":false
   }
 }

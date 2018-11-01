@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  position: relative;
+
+  max-width: 100%;
+}
+
+.ff-lazyimg {
+  width: 100%;
+  display: block;
+  &:not([src]) {
+    visibility: hidden;
+  }
+}

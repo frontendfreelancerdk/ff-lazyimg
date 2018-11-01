@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ILazyimgComponent} from './interfaces/ILazyimgComponent';
+
 @Injectable({providedIn: 'root'})
 export class LazyimgService {
   private counter: number = 0;
@@ -16,7 +17,6 @@ export class LazyimgService {
       image.startLoadHandler();
     }
     this.hasLoadedAll = true;
-
   };
 
   public sortImages = () => {
@@ -48,12 +48,12 @@ export class LazyimgService {
   loader(obj: ILazyimgComponent) {
     this.images.push(obj);
 
-    //if load is set to true add it to the to load array right away
+    // if load is set to true add it to the to load array right away
 
     if (obj.load === true) {
       this.imagesToLoad.push(obj);
     }
-    //if an image is added after constructing the view call the load handler if load is true. we do not need to add it to internal counting
+    // if an image is added after constructing the view call the load handler if load is true. we do not need to add it to internal counting
     if (this.hasLoadedAll && obj.load === true) {
       obj.startLoadHandler();
     }
