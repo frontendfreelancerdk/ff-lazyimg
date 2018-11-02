@@ -6,7 +6,7 @@ import {
   Output,
   OnChanges,
   SimpleChanges,
-  ChangeDetectionStrategy, ViewContainerRef, HostBinding
+  ChangeDetectionStrategy, ViewContainerRef, HostBinding, ChangeDetectorRef
 } from '@angular/core';
 
 import {LazyimgService} from './lazyimg.service';
@@ -14,8 +14,6 @@ import {ILazyimgComponent} from './interfaces/ILazyimgComponent';
 import {ILazyimgStyle} from './interfaces/ILazyimgStyle';
 import {ILazyimgConfiguration, ILazyimgImageConfig} from './interfaces/ILazyimgConfiguration';
 import {LazyimgResizeService} from './resize-service/lazyimg-resize.service';
-import {forEach} from '@angular/router/src/utils/collection';
-
 
 // @ts-ignore
 @Component({
@@ -32,6 +30,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges {
   @HostBinding('style.height') hostHeight: string;
   @HostBinding('style.width') hostWidth: string;
 
+
   public src: string;
   public srcset: string;
   public order: number | undefined;
@@ -42,7 +41,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges {
   private breakpointValues: string[];
   private breakPoints: [any];
 
-  constructor(private service: LazyimgService, private _viewContainerRef: ViewContainerRef, private lazyimgResizeService: LazyimgResizeService) {
+  constructor(private changeDetectoreRef: ChangeDetectorRef, private service: LazyimgService, private _viewContainerRef: ViewContainerRef, private lazyimgResizeService: LazyimgResizeService) {
 // count all images before init
     service.imageCounter();
   }
@@ -159,14 +158,22 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges {
   }
 
   imageLoadedHandler(e) {
-    this.imageLoaded.emit(e);
     this.hostHeight = this.hostWidth = '';
+    if (this.imageLoaded.observers.length > 0) {
+      this.imageLoaded.emit(e);
+    }
+    else {
+      this.changeDetectoreRef.detectChanges();
+    }
   }
 
   startLoadHandler() {
-    this.imageInserted.emit(true);
     this.applySources = true;
+    // fixes https://github.com/frontendfreelancerdk/ff-lazyimg/issues/1
+    if (this.imageInserted.observers.length > 0) {
+      this.imageInserted.emit(true);
+    } else {
+      this.changeDetectoreRef.detectChanges();
+    }
   }
-
-
 }

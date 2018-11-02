@@ -14,7 +14,9 @@ const createHostComponent = (config) => {
   let fixture: ComponentFixture<TestHostComponent>;
   fixture = TestBed.createComponent(TestHostComponent);
   component = fixture.componentInstance;
-  component.conf = {...config, src: 'muhaha'};
+  let base = {src: 'muhaha'};
+  component.conf = {...base, ...config}
+  ;
   return {fixture, component};
 };
 
@@ -96,6 +98,20 @@ describe('LazyimgComponent-2', () => {
     expect(componentHeight).toBe(500);
   });
 
+  // test for https://github.com/frontendfreelancerdk/ff-lazyimg/issues/1
+  it('will apply src attibute to img - when no output @imageInserted is set ', fakeAsync(() => {
+    const {fixture, component} = createHostComponent({imageConfig: {dimensions: {height: 50}}, load: true, src: 'noimage'});
+    fixture.detectChanges();
+    const lazy = component.testComponentReal;
+    lazy.ngOnInit();
+    fixture.detectChanges();
+    tick(1);
+
+    const container = fixture.debugElement.query(By.css('img')).nativeElement;
+    console.log('muh a hers lazy', container, '---', container.src, lazy.src);
+    const expected = container.src.substring(container.src.length - component.conf.src.length, container.src.length);
+    expect(expected).toBe('noimage');
+  }));
 
 
 });
