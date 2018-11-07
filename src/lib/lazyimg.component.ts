@@ -6,7 +6,7 @@ import {
   Output,
   OnChanges,
   SimpleChanges,
-  ChangeDetectionStrategy, ViewContainerRef, HostBinding, ChangeDetectorRef
+  ChangeDetectionStrategy, ViewContainerRef, HostBinding, ChangeDetectorRef, OnDestroy
 } from '@angular/core';
 
 import {LazyimgService} from './lazyimg.service';
@@ -22,7 +22,7 @@ import {LazyimgResizeService} from './resize-service/lazyimg-resize.service';
   styleUrls: ['./lazyimg.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges {
+export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, OnDestroy {
   @Input() configuration: ILazyimgConfiguration;
   @Input() shouldLoad: boolean;
   @Output() imageInserted = new EventEmitter<any>();
@@ -40,13 +40,17 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges {
   public name: string = '';
   private breakpointValues: string[];
   private breakPoints: [any];
+  public alt: string;
 
   constructor(private changeDetectoreRef: ChangeDetectorRef, private service: LazyimgService, private _viewContainerRef: ViewContainerRef, private lazyimgResizeService: LazyimgResizeService) {
 // count all images before init
     service.imageCounter();
   }
 
-
+  ngOnDestroy() {
+    //may be a fix???
+    this.changeDetectoreRef.detach();
+  }
   ngOnChanges(changes: SimpleChanges) {
     const shouldLoad = changes.shouldLoad,
       conf = changes.configuration;
@@ -66,6 +70,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges {
     const imgConfig = this.configuration.imageConfig;
     this.order = this.configuration.order;
     this.src = this.configuration.src;
+    this.alt = this.configuration.alt || '';
     this.srcset = this.configuration.srcset;
     this.style = this.configuration.style || {};
     this.name = this.configuration.name;

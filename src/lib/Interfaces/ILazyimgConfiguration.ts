@@ -19,8 +19,9 @@ export interface ILazyimgConfiguration {
   srcset?: string;
   srcByBreakpoint?: [any];
   style?: any;
-  load?: boolean
+  load?: boolean;
   name?: string;
+  alt?: string;
   // can contain configurations for the image
   imageConfig?: ILazyimgImageConfig
 }
