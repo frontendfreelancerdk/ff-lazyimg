@@ -142,6 +142,17 @@ describe('LazyimgComponent', () => {
     expect(component['getImageRatio'](1000, 500)).toBe(0.5);
   });
 
+  // https://github.com/frontendfreelancerdk/ff-lazyimg/issues/3
+  it('will always set height property even when imageConfig is not defined ', fakeAsync(() => {
+    component.configuration = {src: 'some', load: false};
+    fixture.detectChanges();
+    component.ngOnInit();
+    fixture.detectChanges();
+    tick(1);
+    expect(component.hostHeight).toBe('0px');
+
+  }));
+
 
   /*
   this does not currently work due to a bug

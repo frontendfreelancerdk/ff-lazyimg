@@ -27,7 +27,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
   @Input() shouldLoad: boolean;
   @Output() imageInserted = new EventEmitter<any>();
   @Output() imageLoaded = new EventEmitter<any>();
-  @HostBinding('style.height') hostHeight: string;
+  @HostBinding('style.height') hostHeight: string = '0px';
   @HostBinding('style.width') hostWidth: string;
 
 
@@ -51,6 +51,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
     //may be a fix???
     this.changeDetectoreRef.detach();
   }
+
   ngOnChanges(changes: SimpleChanges) {
     const shouldLoad = changes.shouldLoad,
       conf = changes.configuration;
@@ -155,6 +156,9 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
       else if (imageConfig.height) {
         this.hostHeight = imageConfig.height + 'px';
       }
+    /*  else {
+        this.hostHeight = 0 + 'px';
+      }*/
     }
   }
 

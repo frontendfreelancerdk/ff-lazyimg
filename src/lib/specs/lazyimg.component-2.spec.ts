@@ -108,10 +108,7 @@ describe('LazyimgComponent-2', () => {
     tick(1);
 
     const container = fixture.debugElement.query(By.css('img')).nativeElement;
-    console.log('muh a hers lazy', container, '---', container.src, lazy.src);
     const expected = container.src.substring(container.src.length - component.conf.src.length, container.src.length);
     expect(expected).toBe('noimage');
   }));
-
-
 });
