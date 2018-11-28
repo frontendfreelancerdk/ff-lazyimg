@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/frontendfreelancerdk/ff-lazyimg.svg?branch=master)](https://travis-ci.org/frontendfreelancerdk/ff-lazyimg)
+
 # ff-lazyimg
 **An image lazyloader for Angular 7+**
 

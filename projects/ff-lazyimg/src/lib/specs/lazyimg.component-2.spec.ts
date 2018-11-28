@@ -4,7 +4,7 @@ import {async, inject, ComponentFixture, fakeAsync, TestBed, tick} from '@angula
 import {LazyimgComponent} from '../lazyimg.component';
 import {LazyimgService} from '../lazyimg.service';
 import {By} from '@angular/platform-browser';
-import {ILazyimgConfiguration} from '../Interfaces/ILazyimgConfiguration';
+import {ILazyimgConfiguration} from '../interfaces/ILazyimgConfiguration';
 import {Component, ElementRef, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
 import {by} from 'protractor';
 
