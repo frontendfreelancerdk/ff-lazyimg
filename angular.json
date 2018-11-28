@@ -152,7 +152,8 @@
           "options": {
             "main": "projects/ff-lazyimg/src/test.ts",
             "tsConfig": "projects/ff-lazyimg/tsconfig.spec.json",
-            "karmaConfig": "projects/ff-lazyimg/karma.conf.js"
+            "karmaConfig": "projects/ff-lazyimg/karma.conf.js",
+            "codeCoverage": true
           }
         },
         "lint": {

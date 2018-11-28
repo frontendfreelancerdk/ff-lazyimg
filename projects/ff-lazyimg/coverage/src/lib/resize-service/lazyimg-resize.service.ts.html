@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
-        <span class="quiet">Statements</span>
-        <span class='fraction'>21/24</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">54.84% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>17/31</span>
-      </div>
-      <div class='fl pad1y space-right2'>
         <span class="strong">83.33% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>5/6</span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>10/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">89.47% </span>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.82% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>17/19</span>
+        <span class='fraction'>9/11</span>
       </div>
     </div>
     <p class="quiet">
@@ -83,21 +83,25 @@
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
 <a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
@@ -106,28 +110,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from '<span class="branch-1 cbranch-no" title="branch not covered" >@angular/core';</span>
-import {BehaviorSubject, Observable, fromEvent} fro<span class="branch-1 cbranch-no" title="branch not covered" >m 'rxjs';</span>
-impo<span class="missing-if-branch" title="if path not taken" >I</span>rt {throttleTime, scan, debounceTime, map} from 'rxjs/operators';<span class="cstat-no" title="statement not covered" ></span>
-<span class="branch-1 cbranch-no" title="branch not covered" ><span class="missing-if-branch" title="else path not taken" >E</span></span>
-/*<span class="branch-2 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" ></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, fromEvent} from 'rxjs';
+import {throttleTime, scan, debounceTime, map} from 'rxjs/operators';
+&nbsp;
+/*
 const {throttleTime, scan} = 'rxjs.operators';*/
-<span class="branch-1 cbranch-no" title="branch not covered" ></span>
-inte<span class="missing-if-branch" title="else path not taken" >E</span>rface IwindowSize {
+&nbsp;
+interface IwindowSize {
   width: number;
   height: number;
 }
@@ -141,17 +141,17 @@ export class LazyimgResizeService {
 &nbsp;
   public observable = new Observable();
 &nbsp;
-  constructor() {<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span>
+  constructor() {
 // TODO this could be simplified so we dont need 2 observales / Behavioursubjects
     fromEvent(window, 'resize')
-      .p<span class="missing-if-branch" title="if path not taken" >I</span>ipe(debounceTime(300))
-      .subsc<span class="cstat-no" title="statement not covered" >ribe(x =&gt; this.windowSize.next(this.getSize(x)));</span>
+      .pipe(debounceTime(300))
+      .subscribe(<span class="fstat-no" title="function not covered" >x =&gt; <span class="cstat-no" title="statement not covered" >this.windowSize.next(this.getSize(x)))</span>;</span>
 &nbsp;
   }
 &nbsp;
   private getSize(e?): IwindowSize {
-    if (e) {
-      return {width: e.target.innerWidth, height: e.target.innerHeight};
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (e) {
+<span class="cstat-no" title="statement not covered" >      return {width: e.target.innerWidth, height: e.target.innerHeight};</span>
     }
     return {width: window.innerWidth, height: window.innerHeight};
   }
@@ -163,7 +163,7 @@ export class LazyimgResizeService {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Nov 28 2018 13:43:53 GMT+0200 (Jerusalem Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Nov 28 2018 20:10:24 GMT+0200 (Jerusalem Standard Time)
 </div>
 </div>
 <script src="..\..\..\prettify.js"></script>

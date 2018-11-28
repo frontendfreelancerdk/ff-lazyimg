@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "copy-readme": "copy .\\README.md .\\projects\\ff-lazyimg",
+    "test_lib": "ng test ff-lazyimg --watch=false --browsers=ChromeHeadless",
+    "build_lib": "ng build ff-lazyimg",
+    "build": "npm run copy-readme && npm run build_lib",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
