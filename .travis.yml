@@ -3,19 +3,19 @@ addons:
   chrome: stable
 language: node_js
 node_js:
-  - node
+- node
 script:
-  - npm run test_lib
-  - npm run build_lib
+- npm run test_lib
+- npm run build_lib
 before_deploy:
-  - cp README.md dist/ff-lazyimg
-  - cd dist/ff-lazyimg
+- cp README.md dist/ff-lazyimg
+- cd dist/ff-lazyimg
 deploy:
   provider: npm
   skip_cleanup: true
   email: developer@frontend-freelancer.com
   api_key:
-    secure: mIw3zqqAUxYEKj5/ufxFea8/08B6QIFNZX5dWs+Y4hcmEU8cGxQP90t1n9T4OEPr1FeWKzhXbsbzIxxoFIAG1N0M8NtxIjs01Fur92TFwDVMDEvumzzjucmpRLlB2ftKwUH5xeC5Wf8hRGwIzZzMo88EJSz8b5HlgQcrX3yP72XE/pG3p2OC/22px1SrEa/QbZUqPZWB10wsDuLSDDYep+icggn7rMr+k5nLh4T02nDSBeGe7k1i4jDRj68303eGobFjoX+SBQESPtDDw8rW33bHseZoK+pude7w9vCrjok+WFUTrJNDcx0M9qaRBK+PNZj7/+xvAjAvlH8Eh3FdMnz3Vh7Gqth4uv4Fl5UWHda1vaj4TMPwMg116mdp8ZyLdJ7fq59O8v/gp2pJjdfelcxiGsUNCt+KpRuv+xSRcGaUYAsF3SH3JRXWsXkEPcfd1QgzUpw3expWZQ3M9H/fhJHpjSf5udR+3TzYg2qk9ZqFEbTcA0aXK4mjcOFswm32H0ysPCkbpIKHfJNdX9E5hIRPlyoz0dBDLjQzCeys8hYDKjW9zkRIu10M9uladzukIWBIJFhDdI/mybvjMXGFHRzSv3AoIZvcTj+gUrTkK+l/ZTHomFL3/0fLCn8RZvGxLMP8IqZ1zVpKh00jbNrcufIyqrRDJqvgds/I4uQBP5k=
+    secure: N9qx743c5N+fCbhwhzdqyb3Pmf5olt8XVX/MmRd02/sNJTmtvCdxB4tSLGwcGUtN/dAnNrRKiq6NXsK8pSItTNUbxDPX+UIgbVatZDe+2jhoASNlcWr1KYgAn47AxNae/K9GAL9gpkSmTKtJ0wwd8QjsLcKHnadebS+fXKOOqCJzLBj3aSqwMhWDmO/HPCNYA4gxgoHhW4Cqhz1tUkQaj4U0nTBXXbmEXW9roNfxAHK9BpRwGcuoRZv816NNHMymAyBPT1qos2mmP6fd52dl+Rlo6CmuBoyYMIQ3hlnali4sTN/Do9ubP2DFG/Kns6qnb/YDqQPcYg073cgNnc2wduBfTtj2wSn2yuV5qchmvnJvNBfMz+NuOR0O8o5+nALmmVjfBaNlIS8E7FUZUzLlj7NLR7R/putHsDGf87zuq0y20hzYndT5KKxxERay9q7ju3PZg8fu6CUH2kakkyDulWReWGtxXyKjdXXOcFaHicL4unroIsaABkFOarcYHFpp7lGgpIwGoD/t3mzqF8Q3khXqbn6y4GEEeHL9EPT6/E7z6v7ivfW3AQ7x+xJ7sVYF7kNomXMh3fkbni0/7tFvEijp1O8G5Pc0H85ovsWh6vil20NgnBkI1B6U3DboN9S0nPFVLDiJ/+P5NtJh1/dPtoua2c5Y1DMSNlJRkAxnCXI=
   on:
     tags: true
     branch: master
