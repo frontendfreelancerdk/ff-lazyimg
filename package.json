@@ -7,6 +7,7 @@
     "copy-readme": "copy .\\README.md .\\projects\\ff-lazyimg",
     "test_lib": "ng test ff-lazyimg --watch=false --browsers=ChromeHeadless",
     "build_lib": "ng build ff-lazyimg",
+    "prebuild_lib": "node copy_readme",
     "build": "npm run copy-readme && npm run build_lib",
     "test": "ng test",
     "lint": "ng lint",
