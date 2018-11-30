@@ -49,7 +49,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
 
   ngOnDestroy() {
     //may be a fix???
-    this.changeDetectoref.detach();
+    this.changeDetectorRef.detach();
   }
 
   ngOnChanges(changes: SimpleChanges) {
