@@ -42,14 +42,14 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
   private breakPoints: [any];
   public alt: string;
 
-  constructor(private changeDetectoreRef: ChangeDetectorRef, private service: LazyimgService, private _viewContainerRef: ViewContainerRef, private lazyimgResizeService: LazyimgResizeService) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, private service: LazyimgService, private _viewContainerRef: ViewContainerRef, private lazyimgResizeService: LazyimgResizeService) {
 // count all images before init
     service.imageCounter();
   }
 
   ngOnDestroy() {
     //may be a fix???
-    this.changeDetectoreRef.detach();
+    this.changeDetectoref.detach();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -172,7 +172,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
       this.imageLoaded.emit(e);
     }
     else {
-      this.changeDetectoreRef.detectChanges();
+      this.changeDetectorRef.detectChanges();
     }
   }
 
@@ -182,7 +182,7 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
     if (this.imageInserted.observers.length > 0) {
       this.imageInserted.emit(true);
     } else {
-      this.changeDetectoreRef.detectChanges();
+      this.changeDetectorRef.detectChanges();
     }
   }
 }
