@@ -1,9 +1,7 @@
-import {Injectable} from '@angular/core';
+import {Injectable, PLATFORM_ID} from '@angular/core';
 import {BehaviorSubject, Observable, fromEvent} from 'rxjs';
-import {throttleTime, scan, debounceTime, map} from 'rxjs/operators';
-
-/*
-const {throttleTime, scan} = 'rxjs.operators';*/
+import {debounceTime} from 'rxjs/operators';
+import {isPlatformBrowser} from '@angular/common';
 
 interface IwindowSize {
   width: number;
@@ -28,10 +26,14 @@ export class LazyimgResizeService {
   }
 
   private getSize(e?): IwindowSize {
-    if (e) {
-      return {width: e.target.innerWidth, height: e.target.innerHeight};
+    console.log(' LazyimgResizeService isPlatformBrowser(PLATFORM_ID)', isPlatformBrowser(PLATFORM_ID));
+    if (isPlatformBrowser(PLATFORM_ID)) {
+      if (e) {
+        return {width: e.target.innerWidth, height: e.target.innerHeight};
+      }
+      return {width: window.innerWidth, height: window.innerHeight};
+    } else {
+      return {width: 0, height: 0};
     }
-    return {width: window.innerWidth, height: window.innerHeight};
   }
-
 }
