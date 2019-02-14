@@ -8,7 +8,6 @@ script:
   - npm run test_lib
   - npm run build_lib
 before_deploy:
-  - cp README.md dist/ff-lazyimg
   - cd dist/ff-lazyimg
 deploy:
   provider: npm
