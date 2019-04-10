@@ -1,5 +1,6 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {ILazyimgComponent} from './interfaces/ILazyimgComponent';
+import {isPlatformBrowser} from '@angular/common';
 
 @Injectable({providedIn: 'root'})
 export class LazyimgService {
@@ -36,7 +37,7 @@ export class LazyimgService {
     }
   };
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: any) {
     // console.log('an lazyimg Service was constructed');
   }
 
@@ -58,7 +59,7 @@ export class LazyimgService {
       obj.startLoadHandler();
     }
     // sort the images by order but only when all images is added - hence comparison to counter!!
-    if (this.images.length === this.counter) {
+    if (this.images.length === this.counter && isPlatformBrowser(this.platformId)) {
       // timeout ensures we only do this on next update cycle so all OnInit has been called
       window.setTimeout(() => {
         this.setOrderIfUndefined();
