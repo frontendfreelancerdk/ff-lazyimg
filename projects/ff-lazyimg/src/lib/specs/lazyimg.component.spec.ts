@@ -12,7 +12,7 @@ import {Component, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
   template: '<ff-lazyimg [configuration]="conf"></ff-lazyimg>'
 })
 export class TestHostComponent {
-  @ViewChild(LazyimgComponent) /* using viewChild we get access to the TestComponent which is a child of TestHostComponent */
+  @ViewChild(LazyimgComponent, {static: true}) /* using viewChild we get access to the TestComponent which is a child of TestHostComponent */
   public testComponent: LazyimgComponent;
   public conf: ILazyimgConfiguration = {load: false, src: ''};
   /* this is the variable which is passed as input to the TestComponent */

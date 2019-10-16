@@ -11,8 +11,8 @@ export class AppComponent implements OnInit {
   moduleName = 'lazyimg';
   public images = [{
     order: 1,
-    src: 'assets/images/imac.png',
-    srcByBreakpoint: [{600: 'assets/images/imac.png'}, {1200: 'assets/images/lazyImg/bg_3.jpg'}],
+    src: 'https://picsum.photos/900/500?random&t=5',
+    srcByBreakpoint: [{600: 'https://picsum.photos/900/500?random&t=5'}, {1200: 'https://picsum.photos/900/500?random&t=6'}],
     srcset: '!',
     load: false,
     imageConfig: {
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   },
     {
       order: 1,
-      src: 'assets/images/lazyImg/bg_1.jpg',
+      src: 'https://picsum.photos/900/500?random&t=4',
       srcset: '!',
       load: false,
       name: 'lala',
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     },
     {
       order: 1,
-      src: 'assets/images/lazyImg/bg_3.jpg',
+      src: 'https://picsum.photos/900/500?random&t=3',
       srcset: '!',
       load: true,
       /*
@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
   public insertedImages = [];
   public imageWithLoadInConf = [{
     order: 1,
-    src: 'assets/images/lazyImg/bg_3.jpg',
+    src: 'https://picsum.photos/900/500?random&t=1',
     srcset: '',
     load: false/*,
     style: {
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
   }];
   public image = {
     order: 1,
-    src: 'assets/images/lazyImg/bg_3.jpg',
+    src: 'https://picsum.photos/900/500?random&t=2',
     srcset: '',
     load: false,
     imageConfig: {
@@ -105,13 +105,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.getReadme(this.moduleName).subscribe((readme) => {
+/*    this.http.getReadme(this.moduleName).subscribe((readme) => {
       this.readme = readme;
-    });
+    });*/
     window.setTimeout(() => {
       this.insertedImages.push({
         order: 1,
-        src: 'assets/images/lazyImg/bg_3.jpg',
+        src: 'https://picsum.photos/900/500?random&t=7',
         srcset: '!'
       });
     }, 2000);

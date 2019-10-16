@@ -26,9 +26,9 @@ const createHostComponent = (config) => {
   template: '<div class="container"><ff-lazyimg [configuration]="conf"></ff-lazyimg></div>'
 })
 export class TestHostComponent {
-  @ViewChild(LazyimgComponent, {read: ElementRef}) /* using viewChild we get access to the TestComponent which is a child of TestHostComponent */
+  @ViewChild(LazyimgComponent, {read: ElementRef, static: true}) /* using viewChild we get access to the TestComponent which is a child of TestHostComponent */
   public testComponent: ElementRef;
-  @ViewChild(LazyimgComponent) /* using viewChild we get access to the TestComponent which is a child of TestHostComponent */
+  @ViewChild(LazyimgComponent, {static: true}) /* using viewChild we get access to the TestComponent which is a child of TestHostComponent */
   public testComponentReal: LazyimgComponent;
   public conf: ILazyimgConfiguration;
 
