@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/frontendfreelancerdk/ff-lazyimg.svg?branch=master)](https://travis-ci.org/frontendfreelancerdk/ff-lazyimg)
 
 # ff-lazyimg
-**An image lazyloader for Angular 7+**
+**An image lazyloader for Angular 8+**
 
 Use this lazyloader when:
 * You want to be able to lazy load your images
