@@ -162,10 +162,6 @@ export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, O
     }
   }
 
-  private setSizes() {
-
-  }
-
   imageLoadedHandler(e) {
     this.hostHeight = this.hostWidth = '';
     if (this.imageLoaded.observers.length > 0) {

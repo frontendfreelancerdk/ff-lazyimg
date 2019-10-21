@@ -1,1 +1,1 @@
-<img #image (load)="imageLoadedHandler($event)" [attr.alt]="alt" [ngStyle]="style" class="ff-lazyimg" [attr.src]="applySources ? src : null"/>
+<img (load)="imageLoadedHandler($event)" [attr.alt]="alt" [ngStyle]="style" class="ff-lazyimg" [attr.src]="applySources ? src : null"/>
