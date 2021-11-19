@@ -2,7 +2,6 @@ import {async, inject, ComponentFixture, fakeAsync, TestBed, tick} from '@angula
 
 import {LazyimgComponent} from '../lazyimg.component';
 import {LazyimgService} from '../lazyimg.service';
-import {By} from '@angular/platform-browser';
 import {ILazyimgConfiguration} from '../interfaces/ILazyimgConfiguration';
 import {Component, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
 
@@ -90,7 +89,7 @@ describe('LazyimgComponent', () => {
   });
 
   it('should set #load to the value provided on ngChanges and call #service.loader if true',
-    inject([LazyimgService], (service) => {
+    inject([LazyimgService], (service:any) => {
       component.configuration = {src: ''};
       component.configuration = {src: '', load: false};
       component.ngOnInit();
@@ -110,7 +109,7 @@ describe('LazyimgComponent', () => {
       expect(service.loader).toHaveBeenCalledTimes(2);
     }));
 
-  it('Will not call #service.loader when #shouldLoad is not passed to ngOnChanges', inject([LazyimgService], (service) => {
+  it('Will not call #service.loader when #shouldLoad is not passed to ngOnChanges', inject([LazyimgService], (service:any) => {
     component.configuration = {src: 'some', load: false};
     component.ngOnInit();
     component.ngOnChanges({
@@ -121,7 +120,7 @@ describe('LazyimgComponent', () => {
   }));
 
 
-  it('will load when object is replaced with a configuration with load true', inject([LazyimgService], (service) => {
+  it('will load when object is replaced with a configuration with load true', inject([LazyimgService], (service:any) => {
     component.configuration = {src: 'some', load: false};
     component.ngOnInit();
     expect(component.load).toBe(false);

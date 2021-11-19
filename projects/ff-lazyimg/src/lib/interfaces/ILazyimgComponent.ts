@@ -2,7 +2,7 @@
  * @description the interface for the LazyImgComponent
  */
 export interface ILazyimgComponent {
-  startLoadHandler;
+  startLoadHandler:()=> any;
   src: string;
   srcset: string;
   order: number | undefined;

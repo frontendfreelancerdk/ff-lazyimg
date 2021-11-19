@@ -6,10 +6,10 @@ import {LazyimgService} from '../lazyimg.service';
 import {By} from '@angular/platform-browser';
 import {ILazyimgConfiguration} from '../interfaces/ILazyimgConfiguration';
 import {Component, ElementRef, SimpleChange, SimpleChanges, ViewChild} from '@angular/core';
-import {by} from 'protractor';
+//import {by} from 'protractor';
 
 
-const createHostComponent = (config) => {
+const createHostComponent = (config:any) => {
   let component: TestHostComponent;
   let fixture: ComponentFixture<TestHostComponent>;
   fixture = TestBed.createComponent(TestHostComponent);

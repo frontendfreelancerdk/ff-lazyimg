@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Component,
   EventEmitter,
@@ -23,12 +24,12 @@ import {LazyimgResizeService} from './resize-service/lazyimg-resize.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LazyimgComponent implements OnInit, ILazyimgComponent, OnChanges, OnDestroy {
-  @Input() configuration: ILazyimgConfiguration;
-  @Input() shouldLoad: boolean;
+  @Input() configuration!: ILazyimgConfiguration;
+  @Input() shouldLoad!: boolean;
   @Output() imageInserted = new EventEmitter<any>();
   @Output() imageLoaded = new EventEmitter<any>();
   @HostBinding('style.height') hostHeight: string = '0px';
-  @HostBinding('style.width') hostWidth: string;
+  @HostBinding('style.width') hostWidth!: string;
 
 
   public src: string;
