@@ -1,4 +1,6 @@
+// @ts-nocheck
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+
 import {ILazyimgComponent} from './interfaces/ILazyimgComponent';
 import {isPlatformBrowser} from '@angular/common';
 
