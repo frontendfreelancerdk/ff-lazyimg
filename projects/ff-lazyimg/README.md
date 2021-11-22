@@ -1,24 +1,14 @@
-# FfLazyimg
+[![Build Status](https://travis-ci.org/frontendfreelancerdk/ff-lazyimg.svg?branch=master)](https://travis-ci.org/frontendfreelancerdk/ff-lazyimg)
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.0.
+# ff-lazyimg
+**An image lazyloader for Angular 13+
 
-## Code scaffolding
+Use this lazyloader when:
+* You want to be able to lazy load your images
+* You want to avoid pageheight changing and additional re-paints when you lazyload images
+* You want more control over what image is load for different screensizes (e.g. when srcset does not behave)
+* You want to control the order images is loaded in
 
-Run `ng generate component component-name --project ff-lazyimg` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ff-lazyimg`.
-> Note: Don't forget to add `--project ff-lazyimg` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build ff-lazyimg` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build ff-lazyimg`, go to the dist folder `cd dist/ff-lazyimg` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ff-lazyimg` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Work in progress
+Save yourself some headaches and use another lazyloader until this readme changes
+If you like headaches go ahead - the project is public and you can use it as you please.
